@@ -2,7 +2,10 @@
 const express = require('express');
 
 
-// Require tenorjs near the top of the file
+
+
+// Require tenorjs near the top of the file requires the API wrapper
+//(makes it easy to interact with TenorAPI)
   const Tenor = require("tenorjs").client({
     // Replace with your own key
     "Key": "	5FQ3G64XWCFB", // https://tenor.com/developer/keyregistration
@@ -12,6 +15,9 @@ const express = require('express');
 
 // App Setup
 const app = express();
+
+// Somewhere near the top
+app.use(express.static('public'));
 
 // Middleware
 const exphbs  = require('express-handlebars');
